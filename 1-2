@@ -1,0 +1,38 @@
+class Article
+{
+  public static void DisplayValues(Article p)
+  {
+    Console.WriteLine("Header: {0:s}, Content: {1:d}", p.header, p.content);
+    Console.WriteLine("ID#: {0:d}", p.id.IdNumber)};
+  }
+  
+  static void Main(string[] args)
+  {
+    Article a1 = new Article();
+    a1.header = "Header";
+    a1.content = "Content";
+    a1.id = new Article.IdInfo(idNumber:0);
+    
+    Article a2 = a1.ShallowCopy();
+    Article a3 = a1.DeepCopy();
+    
+    Console.WriteLine("Значения a1, a2,a3:");
+    Console.WriteLine(" a1: ");
+    DisplayValues(a1);
+    Console.WriteLine(" a2: ");
+    DisplayValues(a2);
+    Console.WriteLine(" a3: ");
+    DisplayValues(a3);
+    
+    a1.header = "New Header";
+    a1.content = "New Content";
+    a1.id.IdNumber = 1;
+    Console.WriteLine("\n Значения a1, a2,a3 после изменения:");
+    Console.WriteLine(" a1: ");
+    DisplayValues(a1);
+    Console.WriteLine(" a2: ");
+    DisplayValues(a2);
+    Console.WriteLine(" a3: ");
+    DisplayValues(a3);
+  }
+}
