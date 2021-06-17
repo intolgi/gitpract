@@ -1,0 +1,32 @@
+namespace Calcul
+{
+	class Comnum
+	{
+
+public double H;
+public double J;
+
+public Comnum (double h, double j);
+
+{
+H = h;
+J = j;
+}
+
+public delegate Comnum Operation (Comnum x, Comnum y);
+
+public static Operation sum = (x,y) => new Comnum (h:x.H + y.H, j:x.J + y.J);
+public static Operation sun = (x,y) => new Comnum (h:x.H - y.H, j:x.J - y.J);
+public static Operation sup = (x,y) => new Comnum (h:x.H * y.H - x.J * y.J, j:x.H * y.J - x.J * y.H);
+
+public static Comnum div (Comnum x, Comnum y);
+{
+double D = Math.Pow (x.H, 2) + Math.Pow (x.J, 2);
+if (x.H * y.R + y.J * y.J == 0)
+{
+throw new Exeption ();
+}
+return new Comnum (h:(x.H * y.H + x.J * y.J) / D, j:(x.J * y.H - x.H * y.J) / D );
+		}
+	}
+} 
