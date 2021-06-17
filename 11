@@ -1,0 +1,36 @@
+public class ConcreteBuilder : IBuilder
+{
+  private product _product = new Product();
+  
+  public ConcreteBuilder()
+  {
+    this.Reset();
+  }
+  
+  public void Reset()
+  {
+    this._product = new Product();
+  }
+  
+   public void BuildPartA()
+  {
+    this._product.Add(part:"PartA1");
+  }
+  
+  public void BuildPartB()
+  {
+    this._product.Add(part:"PartB1");
+  }
+ 
+  public void BuildPartC()
+  {
+    this._product.Add(part:"PartC1");
+  }
+  
+  public product GetProduct()
+  {
+    Product result = this._product;
+    this.Reset;
+    return result;
+  }
+}
