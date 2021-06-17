@@ -1,0 +1,9 @@
+static void Main(string[] args)
+{
+  Random rand = new Random();
+  char type = figure.types[rand.Next(0, Figure.types.Length)];
+  FigureFactory factory = new FigureFactory();
+  Figure figure = factory.Create(type);
+  FigureWrite write = new FigureWrite();
+  writer.write(figure);
+}
