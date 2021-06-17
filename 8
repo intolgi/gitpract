@@ -1,0 +1,29 @@
+class TeeweeFigure : Figure 
+{
+  public TeeweeFigure()
+  {
+    points = new int[2,4]
+    {
+      {0,0,1,0},
+      {0,1,1,1}
+    };
+  }
+}
+
+class FigureWrite  
+{
+  public void write(Figure figure)
+  {
+    string str = String.Empty;
+    for (int i = 0; i < Figure.figureHeight; i++)
+    {
+      for (int j = 0; j < Figure.figureHeight; j++)
+      {
+        str += figure.getPoints()[i,j];
+      }
+      str+= "\n";
+    }
+    
+    Console.WriteLine(str);
+  }
+}
