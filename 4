@@ -1,0 +1,39 @@
+class Figure
+{
+  public static char[] types = new[] {'L', 'J', 'I', 'T', 'O', 'Z', 'S'};
+  public static int figureWidth = 4;
+  public static int figureHeight = 2;
+  
+  protected int[,] points;
+  
+  public int[,] getPoints()
+  {
+    return points;
+  }
+}
+
+class FigureFactory
+{
+  public Figure Create(char type)
+  {
+    swith (type)
+    {
+      case 'L':
+        return new OrangeRickyFigure();
+      case 'J':
+        return new OrangeRickyFigure();
+      case 'I':
+        return new OrangeRickyFigure();
+      case 'O':
+        return new OrangeRickyFigure();
+      case 'T':
+        return new OrangeRickyFigure();
+      case 'Z':
+        return new OrangeRickyFigure();
+      case 'S':
+        return new OrangeRickyFigure();
+      default:
+        throw new Exeption();
+     }
+   }
+}
