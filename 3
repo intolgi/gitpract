@@ -1,0 +1,62 @@
+namespace Calcul
+{
+class Quartnum
+{
+public double A;
+public double B;
+public double C;
+public double D;
+
+public Quartnum (double a, double b, double c, double d)
+{
+A = a;
+B = b;
+C = c;
+D = d;
+}
+
+public delegate Quartnum Operation (Quartnum x, Quartnum y);
+public static Operation sum = (x,y) => new Quartnum(
+a: x.A + y.A,
+b: x.B + y.B,
+c: x.C + y.C,
+d: x.D + y.D
+);
+
+public static Operation sun = (x,y) => new Quartnum(
+a: x.A - y.A,
+b: x.B - y.B,
+c: x.C - y.C,
+d: x.D - y.D
+);
+
+public static Operation sup = (x,y) => new Quartnum(
+a: x.C * y.A + x.A * y.C + x.B * y.D - x.D * y.B,
+b: x.C * y.B + x.B * y.C + x.D * y.A - x.A * y.D,
+c: x.C * y.C + x.D * y.C + x.A * y.B - x.B * y.A,
+d: x.C * y.C - x.A * y.A - x.B * y.B - x.D * y.D,
+);
+
+public static Quartnum div (Quartnum x, Quartnum y)
+{
+Quartnum res = new Quartnum (a:0, b:0, c:0, d:0);
+Quartnum inv = y.inverse();
+
+return (Quartnum.sup(x,y));
+}
+
+public Quartnum inverse()
+{
+double[] arr = new[] {A, B, C};
+double divBy = Math.Pow (D,2) + Math.Pow(arr[0],2)
+		+ Math.Pow(arr[1],2)
+		+ Math.Pow(arr[2],2);
+
+if (divBy == 0)
+{
+throw new Exeption(); 
+}
+return new Quartnum(a:C/divBy, b: -arr[0]/ divBy, c:-arr[1]/ divBy, d:-arr[2]/ divBy);
+}
+}
+}
